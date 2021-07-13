@@ -23,7 +23,7 @@ self.addEventListener('activate',onEvent=> {
 self.addEventListener('fetch',onEvent=> {
   console.log('Service Worker: Fetching');
   onEvent.respondWith(
-    fetch(e.request)
+    fetch(onEvent.request)
       .then(res => {
         const resClone = res.clone();
         caches.open(cacheName).then(cache => {
